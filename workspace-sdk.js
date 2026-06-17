@@ -27,55 +27,19 @@
     }
   };
 
-  // src/modules/frota/cadastro/veiculo.ts
-  var veiculoModule = {
-    listar(filtros) {
-      return Core.get(
-        "/Frota/Cadastro/Veiculo",
-        filtros
-      );
-    },
-    getById(id) {
-      return Core.get(`/Frota/Cadastro/Veiculo/${id}`);
-    }
-  };
-
-  // src/modules/frota/cadastro/motorista.ts
-  var motoristaModule = {
-    listar(filtros) {
-      return Core.get(
-        "/Frota/Cadastro/Motorista",
-        filtros
-      );
-    },
-    getById(id) {
-      return Core.get(`/Frota/Cadastro/Motorista/${id}`);
-    }
-  };
-
-  // src/modules/frota/movimentacao/lancamento-viagem.ts
-  var lancamentoViagemModule = {
-    listar(filtros) {
-      return Core.get(
-        "/Frota/Movimentacao/LancamentoViagem",
-        filtros
-      );
-    },
-    getById(id) {
-      return Core.get(`/Frota/Movimentacao/LancamentoViagem/${id}`);
-    }
-  };
-
-  // src/modules/frota/cadastro/tributacao-fiscal.ts
+  // src/modules/fiscal/cadastro/tributacao-fiscal.ts
   var tributacaoFiscalModule = {
     listar(filtros) {
       return Core.get(
-        "/Fiscal/Cadastro/TributacaoFiscal",
+        "/Fiscal/TributacaoFiscal",
         filtros
       );
     },
-    getById(id) {
-      return Core.get(`/Fiscal/Cadastro/TributacaoFiscal/${id}`);
+    listarParametros(filtros) {
+      return Core.get(
+        "/Fiscal/TributacaoFiscal/Parametro",
+        filtros
+      );
     }
   };
 
@@ -83,15 +47,6 @@
   var WorkspaceSDK = {
     get isInitialized() {
       return Core.isReady();
-    },
-    frota: {
-      cadastro: {
-        veiculo: veiculoModule,
-        motorista: motoristaModule
-      },
-      movimentacao: {
-        lancamentoViagem: lancamentoViagemModule
-      }
     },
     fiscal: {
       cadastro: {
